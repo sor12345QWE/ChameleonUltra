@@ -7,7 +7,7 @@
 
 #define SETTINGS_CURRENT_VERSION 5
 #define BLE_PAIRING_KEY_LEN 6
-#define DEFAULT_BLE_PAIRING_KEY "123567"  // length must == 6
+#define DEFAULT_BLE_PAIRING_KEY "123456"  // length must == 6
 
 typedef enum {
     SettingsAnimationModeFull = 0U,
@@ -34,7 +34,7 @@ typedef struct ALIGN_U32 {
     // 1 byte
     uint8_t animation_config : 2;
     uint8_t ble_pairing_enable : 1;
-    uint8_t reserved0 : 5; // If you are add switch field, reallocating me.
+    uint8_t reserved0 : 6; // If you are add switch field, reallocating me.
 
     // 1 byte
     uint8_t button_a_press : 4;
