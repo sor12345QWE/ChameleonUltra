@@ -623,9 +623,11 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
         }
         case NRFX_NFCT_EVT_RX_FRAMEEND: {
             set_slot_light_color(RGB_YELLOW);
-            config.button_b_press = SettingsButtonCycleSlotDec;
+            
             TAG_FIELD_LED_ON()
-
+ m_is_a_btn_press = true;
+            
+             m_is_a_btn_press = false; 
             
             
             // NRF_LOG_INFO("RX FRAMEEND.\n");
