@@ -495,3 +495,60 @@ void ledblink6(void) {
 bool is_rgb_marquee_enable(void) {
     return g_usb_led_marquee_enable;
 }
+
+
+
+
+
+
+
+// 在全局变量区添加
+static uint8_t ledblink7_step = 0;
+static uint8_t ledblink7_slot = 0;
+
+void ledblink7_nonblocking(uint8_t color) {
+    static uint32_t *led_pins = NULL;
+    
+    if(ledblink7_step == 0){
+        // 初始化
+        led_pins = hw_get_led_array();
+        set_slot_light_color(color);
+        ledblink7_slot = 0;
+        ledblink7_step = 1;
+    }
+    
+    if(ledblink7_step == 1){
+        // 配置当前卡槽
+        pwm_config.output_pins[0] = led_pins[ledblink7_slot];
+        // ...其余配置同前...
+        ledblink7_step = 2;
+        bsp_set_timer(timer, 0);
+    }
+    
+    if(ledblink7_step == 2){
+        if(NO_TIMEOUT_1MS(timer, 1000)){
+            return;
+        }
+        nrf_gpio_pin_clear(led_pins[ledblink7_slot]);
+        ledblink7_slot++;
+        ledblink7_step = (ledblink7_slot <8) ? 1 : 3;
+    }
+    
+    if(ledblink7_step == 3){
+        rgb_marquee_stop();
+        ledblink7_step = 0;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
