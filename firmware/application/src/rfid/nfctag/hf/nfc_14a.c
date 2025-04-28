@@ -625,6 +625,8 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
             set_slot_light_color(RGB_YELLOW);
             TAG_FIELD_LED_ON()
 
+            config.button_b_press = SettingsButtonCycleSlotDec;
+            
             // NRF_LOG_INFO("RX FRAMEEND.\n");
             // TODO Remember a bug, if you do not reply to the message after receiving the message, you need to manually enable you
             //   Otherwise, the nrfx_nfct_evt_tx_frameend conditions above will not be triggered, and nrfx_nfct_rx_bytes will not be called
