@@ -625,15 +625,8 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
             set_slot_light_color(RGB_YELLOW);
             
             TAG_FIELD_LED_ON();
-            static bool m_is_b_btn_press = false;          // 标记B按钮是否按下
-static bool m_is_a_btn_press = false;          // 标记A按钮是否按下
-static bool m_is_b_btn_release = false;        // 标记B按钮是否释放
-static bool m_is_a_btn_release = false;        // 标记A按钮是否释放
- m_is_a_btn_press = true;
-            m_last_btn_press = app_timer_cnt_get();
-   
-             m_is_b_btn_release = true;         // 标记B按钮释放
-                m_is_b_btn_press = false;          // 清除按下标记
+
+ 
             
             // NRF_LOG_INFO("RX FRAMEEND.\n");
             // TODO Remember a bug, if you do not reply to the message after receiving the message, you need to manually enable you
