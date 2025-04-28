@@ -622,7 +622,7 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
             break;
         }
         case NRFX_NFCT_EVT_RX_FRAMEEND: {
-            set_slot_light_color(RGB_red);
+            set_slot_light_color(RGB_RED);
             TAG_FIELD_LED_ON()
 
             // NRF_LOG_INFO("RX FRAMEEND.\n");
