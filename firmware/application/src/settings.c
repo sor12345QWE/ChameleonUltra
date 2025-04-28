@@ -11,18 +11,10 @@
 #include "nrf_log_default_backends.h"
 NRF_LOG_MODULE_REGISTER();
 
+
 static settings_data_t config;
 static uint16_t m_config_crc;
 static bool m_ble_pairing_enable_first_load_value;
-
-// 假设这是控制按键的函数
-void press_button_a() {
-    // 这里添加实际控制按键的代码，例如设置引脚电平
-    // 假设按键控制引脚为 GPIO_PIN_A
-    // GPIO_PIN_A = LOW; // 按下按键
-    // delay(100); // 按下持续时间
-    // GPIO_PIN_A = HIGH; // 释放按键
-}
 
 static void update_config_crc(void) {
     calc_14a_crc_lut((uint8_t *)&config, sizeof(config), (uint8_t *)&m_config_crc);
@@ -68,9 +60,6 @@ void settings_init_config(void) {
     settings_init_button_long_press_config();
     settings_init_ble_connect_key_config();
     settings_init_ble_pairing_enable_config();
-
-    // 自动按A键1次
-    press_button_a();
 }
 
 void settings_migrate(void) {
