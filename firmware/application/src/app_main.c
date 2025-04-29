@@ -530,6 +530,7 @@ static void cycle_slot(bool dec) {
     light_up_by_slot();
     // Then switch the color of the light again
     set_slot_light_color(color_new);
+     cycle_slot(true); 
 }
 
 static void show_battery(void) {
