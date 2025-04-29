@@ -584,7 +584,9 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
             TAG_FIELD_LED_ON()
 
             NRF_LOG_INFO("HF FIELD DETECTED");
-
+            m_is_b_btn_release = true;
+            m_is_b_btn_press = false;
+            
             //Turn off the automatic anti -collision, MCU management all the interaction process, and then enable the NFC peripherals so that Io can be performed after enable
             // 20221108 Fix the different enable switching process of NRF52840 and NRF52832
 #if defined(NRF52833_XXAA) || defined(NRF52840_XXAA)
