@@ -582,7 +582,11 @@ void nfc_tag_14a_event_callback(nrfx_nfct_evt_t const *p_event) {
 
             set_slot_light_color(RGB_GREEN);
             TAG_FIELD_LED_ON()
-
+             device_mode_t mode = get_device_mode();
+             tag_emulation_change_slot(slot, mode != DEVICE_MODE_READER);
+              light_up_by_slot();
+               set_slot_light_color(RGB_RED);
+                
             NRF_LOG_INFO("HF FIELD DETECTED");
 
             //Turn off the automatic anti -collision, MCU management all the interaction process, and then enable the NFC peripherals so that Io can be performed after enable
