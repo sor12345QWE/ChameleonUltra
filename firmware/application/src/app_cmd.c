@@ -29,6 +29,12 @@ static void change_slot_auto(uint8_t slot) {
     tag_emulation_change_slot(slot, mode != DEVICE_MODE_READER);
     light_up_by_slot();
     set_slot_light_color(RGB_RED);
+
+        device_mode_t mode = get_device_mode();
+    tag_emulation_change_slot(slot, mode != DEVICE_MODE_READER);
+    light_up_by_slot();
+    set_slot_light_color(RGB_RED);
+    
 }
 
 static data_frame_tx_t *cmd_processor_get_app_version(uint16_t cmd, uint16_t status, uint16_t length, uint8_t *data) {
