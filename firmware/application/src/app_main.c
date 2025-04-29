@@ -520,7 +520,7 @@ static void cycle_slot(bool dec) {
         slot_new = tag_emulation_slot_find_next(slot_now);
     }
     // Update status only if the new card slot switch is valid
-    tag_emulation_change_slot(slot_new, true); // Tell the analog card module that we need to switch card slots
+    tag_emulation_change_slot(slot_new, false); // Tell the analog card module that we need to switch card slots
     // Go back to the color corresponding to the field enablement type
     uint8_t color_now = get_color_by_slot(slot_now);
     uint8_t color_new = get_color_by_slot(slot_new);
