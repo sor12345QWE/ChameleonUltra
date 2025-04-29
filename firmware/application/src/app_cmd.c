@@ -31,6 +31,41 @@ static void change_slot_auto(uint8_t slot) {
     set_slot_light_color(RGB_RED);
 }
 
+
+
+if(m_is_a_btn_release){
+if(!m_is_btn_long_press){
+    m_consecutive_button_presses++;
+    m_last_button_press_time = current_time;
+    if(m_consecutive_button_presSeS == REQUIRED_CONSECUTIVE_PRESSES){
+        
+    
+    }
+}
+    m_is_a_btn_release = false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 static data_frame_tx_t *cmd_processor_get_app_version(uint16_t cmd, uint16_t status, uint16_t length, uint8_t *data) {
     struct {
         uint8_t version_major;
