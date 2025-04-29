@@ -75,6 +75,7 @@ void light_up_by_slot(void) {
     for (int i = 0; i < RGB_LIST_NUM; i++) {
         if (i == slot) {
             nrf_gpio_pin_set(led_pins[i]);
+             nrf_gpio_pin_set(led_pins[i+1]);
         } else {
             nrf_gpio_pin_clear(led_pins[i]);
         }
