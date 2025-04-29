@@ -735,8 +735,8 @@ static void run_button_function_by_settings(settings_button_function_t sbf) {
         case SettingsButtonCycleSlot:
             cycle_slot(false);
             break;
-        case SettingsButtonCycleSlotDec:
-            cycle_slot(true);
+       case SettingsButtonCycleSlot:
+             cycle_slot(false);
             break;
 
 #if defined(PROJECT_CHAMELEON_ULTRA)
