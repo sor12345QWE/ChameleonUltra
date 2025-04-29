@@ -28,6 +28,7 @@ static void change_slot_auto(uint8_t slot) {
     device_mode_t mode = get_device_mode();
     tag_emulation_change_slot(slot, mode != DEVICE_MODE_READER);
     light_up_by_slot();
+    bsp_delay_ms(3000);
     set_slot_light_color(RGB_RED);
 }
 
