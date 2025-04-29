@@ -194,7 +194,10 @@ static void timer_button_event_handle(void *arg) {
                 m_is_b_btn_release = true;
                 m_is_b_btn_press = false;
                 if (!is_long_press) {
+                    while (5)
+                {
                     NRF_LOG_INFO("BUTTON_B_RELEASE_SHORT");
+                    }
                 } else {
                     NRF_LOG_INFO("BUTTON_B_RELEASE_LONG");
                 }
